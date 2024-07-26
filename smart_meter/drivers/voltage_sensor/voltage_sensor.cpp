@@ -32,9 +32,9 @@ void voltageSensorUpdate()
 
 float voltageSensorRead()
 {
-    float vsensitivity = 1/110.5;
+    float vsensitivity = 0.0025;
     float voltage = VoltageSensor.read();
-    float Voltage = (voltage-0.606)*3.3/vsensitivity; //real voltage value calculation. Needs more testing and improvement
+    float Voltage = (voltage-0.5)*3.3/vsensitivity; //real voltage value calculation
     return Voltage;
 }
 
