@@ -17,9 +17,7 @@ La placa utilizada como plataforma de desarrollo fue:
 
 - NUCLEO F429ZI
 
-Los datos de tensión, corriente y potencia instantánea son enviados cada 10 milisegundos por el puerto serie, así como también un contador incremental de energía consumida, y un registro de la máxima potencia registrada. Sin embargo, estos son mostrados en pantalla de forma independiente cada un segundo (evitando crear un código bloqueante).
-
-Queda pendiente para instancias futuras del trabajo que el sistema calcule los valores eficaces de tensión y corriente.
+Los datos de tensión, corriente y potencia instantánea son enviados cada 10 milisegundos por el puerto serie, así como también un contador incremental de energía consumida, y un registro de la máxima potencia registrada. Sin embargo, estos son mostrados en pantalla de forma independiente cada un segundo (evitando crear un código bloqueante). Estos tiempos se manejan a traves de la tasa de refresco del sistema, la cual es de 10 milisegundos. Al involucrar todos los procesos tiempos no despreciables frente a 10 ms, se sabe que no se cuenta con demasiada precisión en las lecturas de valores a la larga. Se buscará implementar Tickers en instancias futuras del trabajo para resolverlo
 
 En esta segunda instancia del trabajo se implementó el uso de un teclado matricial, mediante el cual se pueden introducir numeros que formaran un código. Una vez ingresado el mismo, se debe presionar el botón asignado al caracter "#" a modo de enter, mediante el cual el sistema procederá a la verificación de la contraseña. De resultar correcta la verificación, se resetea el contador de energía consumida y el registro de máxima potencia registrada, a la vez que se enciende un LED (azul) de la placa que indica el reseteo. De resultar la verificación erronea, los registros permanecen sin modificaciones y otro LED (rojo) indica que el código introducido fue incorrecto. El código ingresado puede verse en el puerto serie, a modo de control (en versiones posteriores se planea esconder los caracteres)
 
