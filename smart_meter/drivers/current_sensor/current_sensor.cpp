@@ -32,9 +32,10 @@ void currentSensorUpdate()
 
 float currentSensorRead()
 {
-    float isensitivity = 0.185;
+    float isensitivity = 0.135;
     float current = CurrentSensor.read();
-    float Current = (current-0.5)*3.3/isensitivity; // real current value calculation. Needs more testing and improvement
+    float Current = -(current-0.5)*3.3/isensitivity; // real current value calculation. 
+    //The inverted sign is to compensate the inversion of phase in comparisson to the voltage sensor reading
     return Current;
 }
 
